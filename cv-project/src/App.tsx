@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import '../src/styles/App.css';
+import {NameForm} from "./components/NameForm"
 
 export class App extends Component<any, any> {
   render(){
@@ -10,7 +10,7 @@ export class App extends Component<any, any> {
           <legend>Registration Form</legend>
           <div>
             <label htmlFor="name">Name: </label>
-            <input type="text" name="name" id="name" />
+            <NameForm></NameForm>
           </div>
           <div>
             <label htmlFor="email">E-mail: </label>

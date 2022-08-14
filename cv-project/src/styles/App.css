@@ -55,3 +55,7 @@ form div {
 form label {
   display: block;
 }
+
+p {
+  background: #f8f8f8;
+}

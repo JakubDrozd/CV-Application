@@ -92,8 +92,9 @@ export class App extends Component<any, any> {
                    To: <input type="date" name="dateUntil" id="dateUntil" value={this.state.dateUntil} onChange={ (event) => { this.setState({ dateUntil: event.target.value })
             }}/>
                 </div>
+                <p></p>
+                <input type="submit" value="Submit" />
             </fieldset>
-            <input type="submit" value="Submit" />
           </fieldset>
         </form>
       )
@@ -152,10 +153,11 @@ export class App extends Component<any, any> {
                   <p></p>
                   <p>{this.state.dateUntil}</p>
                 </div>
+                <p></p>
+                <input type="submit" value="Submit" />
+            <input type="button" value="Edit" onClick={event => this.setState({isEditable: true})}/>
             </fieldset>
-            <input type="submit" value="Submit" />
-          </fieldset>
-          <input type="button" value="Edit" onClick={event => this.setState({isEditable: true})}/>
+          </fieldset>  
         </form>
       )
     }

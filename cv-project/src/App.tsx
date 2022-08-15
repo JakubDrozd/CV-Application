@@ -5,6 +5,8 @@ import {NameForm} from "./components/NameForm"
 import {PhoneForm} from './components/PhoneForm'
 import { handleSubmit } from './utils';
 
+
+
 export class App extends Component<any, any> {
   constructor(props: any){
     super(props);
@@ -12,7 +14,15 @@ export class App extends Component<any, any> {
       isEditable: true,
       userName: "",
       email: "",
-      phoneNum: ""
+      phoneNum: "",
+      schoolName: "",
+      studyTitle: "",
+      dateOfStudy: "",
+      companyName: "",
+      positionTitle: "",
+      tasks: "",
+      dateFrom: "",
+      dateUntil: ""
     }
   }
   render(){
@@ -21,6 +31,8 @@ export class App extends Component<any, any> {
         <form onSubmit={handleSubmit.bind(this)}>
           <fieldset>
             <legend>Registration Form</legend>
+            <fieldset>
+              <legend>Personal Information</legend>
             <div>
               <label htmlFor="name">Name: </label>
               <input type="text" id="name" name="name" value={this.state.userName} onChange={ (event) => { this.setState({ userName: event.target.value })
@@ -36,6 +48,51 @@ export class App extends Component<any, any> {
               <input type="tel" id="phone" name="phone" value={this.state.phoneNum} onChange={ (event) => { this.setState({ phoneNum: event.target.value })
             }}/>
             </div>
+            </fieldset>
+            <fieldset>
+              <legend>Education</legend>
+              <div>
+                <label htmlFor="schoolName">School Name: </label>
+                <input type="text" name="schoolName" id="schoolName" value={this.state.schoolName} onChange={ (event) => { this.setState({ schoolName: event.target.value })
+            }} />
+              </div>
+              <div>
+                <label htmlFor="studyTitle">Title of study: </label>
+                <input type="text" name="studyTitle" id="studyTitle" value={this.state.studyTitle} onChange={ (event) => { this.setState({ studyTitle: event.target.value })
+            }} />
+              </div>
+              <div>
+                <label htmlFor="dateOfStudy">Date of study: </label>
+                <input type="date" name="dateOfStudy" id="dateOfStudy" value={this.state.dateOfStudy} onChange={ (event) => { this.setState({ dateOfStudy: event.target.value })
+            }} />
+              </div>
+              </fieldset>
+              <fieldset>
+                <legend>Practical Experience</legend>
+                <div>
+                  <label htmlFor="companyName">Company Name: </label>
+                  <input type="text" name="companyName" id="companyName" value={this.state.companyName} onChange={ (event) => { this.setState({ companyName: event.target.value })
+            }}/>
+                </div>
+                <div>
+                  <label htmlFor="positionTitle">Position Title: </label>
+                  <input type="text" name="positionTitle" id="positionTitle"  value={this.state.positionTitle} onChange={ (event) => { this.setState({ positionTitle: event.target.value })
+            }}/>
+                </div>
+                <div>
+                  <label htmlFor="tasks">Main tasks: </label>
+                  <textarea name="tasks" id="tasks" cols={30} rows={10} value={this.state.tasks} onChange={ (event) => { this.setState({ tasks: event.target.value })
+            }}></textarea>
+                </div>
+                <div>
+                  <label htmlFor="dateFrom">Date range of your work:  </label>
+                  From: <input type="date" name="dateFrom" id="dateFrom" value={this.state.dateFrom} onChange={ (event) => { this.setState({ dateFrom: event.target.value })
+            }} />
+                  <p></p>
+                   To: <input type="date" name="dateUntil" id="dateUntil" value={this.state.dateUntil} onChange={ (event) => { this.setState({ dateUntil: event.target.value })
+            }}/>
+                </div>
+            </fieldset>
             <input type="submit" value="Submit" />
           </fieldset>
         </form>
@@ -45,6 +102,8 @@ export class App extends Component<any, any> {
         <form>
           <fieldset>
             <legend>Registration Form</legend>
+            <fieldset>
+              <legend>Personal Information</legend>
             <div>
               <label htmlFor="name">Name: </label>
               <p>{this.state.userName}</p>
@@ -57,9 +116,46 @@ export class App extends Component<any, any> {
               <label htmlFor="phone">Phone number: </label>
               <p>{this.state.phoneNum}</p>
             </div>
+            </fieldset>
+            <fieldset>
+              <legend>Education</legend>
+              <div>
+                <label htmlFor="schoolName">School Name: </label>
+                <p>{this.state.schoolName}</p>
+              </div>
+              <div>
+                <label htmlFor="studyTitle">Title of study: </label>
+                <p>{this.state.studyTitle}</p>
+              </div>
+              <div>
+                <label htmlFor="dateOfStudy">Date of study: </label>
+                <p>{this.state.dateOfStudy}</p>
+              </div>
+              </fieldset>
+              <fieldset>
+                <legend>Practical Experience</legend>
+                <div>
+                  <label htmlFor="companyName">Company Name: </label>
+                  <p>{this.state.companyName}</p>
+                </div>
+                <div>
+                  <label htmlFor="positionTitle">Position Title: </label>
+                  <p>{this.state.positionTitle}</p>
+                </div>
+                <div className="container">
+                  <label htmlFor="tasks">Main tasks: </label>
+                  <div className="tasks">{this.state.tasks}</div>
+                </div>
+                <div>
+                  <label htmlFor="dateFrom">Date range of your work:  </label>
+                  <p>{this.state.dateFrom}</p>
+                  <p></p>
+                  <p>{this.state.dateUntil}</p>
+                </div>
+            </fieldset>
             <input type="submit" value="Submit" />
-            <input type="button" value="Edit" onClick={event => this.setState({isEditable: true})}/>
           </fieldset>
+          <input type="button" value="Edit" onClick={event => this.setState({isEditable: true})}/>
         </form>
       )
     }

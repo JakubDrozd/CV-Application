@@ -67,9 +67,10 @@ textarea {
 .tasks {
   border: 1px solid black;
   padding: 0.5rem;
-  overflow: auto;
+  overflow: scroll;
   width: 225px;
   height: 150px;
+  overflow-wrap: break-word;
 }
 
 .container {

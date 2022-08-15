@@ -1,9 +1,11 @@
-import React, { Component, useState } from 'react';
+import  { Component } from 'react';
 import '../src/styles/App.css';
-import { EmailForm } from './components/EmailForm';
-import {NameForm} from "./components/NameForm"
-import {PhoneForm} from './components/PhoneForm'
+// import { EmailForm } from './components/EmailForm';
+// import {NameForm} from "./components/NameForm"
+// import {PhoneForm} from './components/PhoneForm'
 import { handleSubmit } from './utils';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
 
 
 
@@ -28,14 +30,15 @@ export class App extends Component<any, any> {
   render(){
     if(this.state.isEditable){
       return(
-        <form onSubmit={handleSubmit.bind(this)}>
+        <form>
           <fieldset>
             <legend>Registration Form</legend>
             <fieldset>
               <legend>Personal Information</legend>
             <div>
               <label htmlFor="name">Name: </label>
-              <input type="text" id="name" name="name" value={this.state.userName} onChange={ (event) => { this.setState({ userName: event.target.value })
+              <input type="text" id="name" name="name" value={this.state.userName} onChange={ (event) => {
+                this.setState({ userName: event.target.value })
             }}/>
             </div>
             <div>
@@ -93,7 +96,7 @@ export class App extends Component<any, any> {
             }}/>
                 </div>
                 <p></p>
-                <input type="submit" value="Submit" />
+                <Button variant="primary" onClick={handleSubmit.bind(this)}>Submit</Button>
             </fieldset>
           </fieldset>
         </form>
@@ -154,8 +157,10 @@ export class App extends Component<any, any> {
                   <p>{this.state.dateUntil}</p>
                 </div>
                 <p></p>
-                <input type="submit" value="Submit" />
-            <input type="button" value="Edit" onClick={event => this.setState({isEditable: true})}/>
+                <div><Button as="input" type="submit" variant="success" value="Submit"></Button></div>
+            <div>
+              <Button variant="danger" onClick={event => this.setState({isEditable: true})}>Edit</Button>
+              </div>
             </fieldset>
           </fieldset>  
         </form>

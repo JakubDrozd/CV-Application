@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent } from "react";
+import { ChangeEvent } from "react";
 
 export function handleChange(this: any, event: ChangeEvent<HTMLInputElement>) {
   const target = event.target as HTMLInputElement;
@@ -6,7 +6,7 @@ export function handleChange(this: any, event: ChangeEvent<HTMLInputElement>) {
   console.log(this.state.value);
 }
 
-export function handleSubmit(this: any, event: FormEvent<HTMLFormElement>) {
+export function handleSubmit(this: any, event: any) {
   event.preventDefault();
   if (this.state.isEditable) {
     this.setState({ isEditable: false });
